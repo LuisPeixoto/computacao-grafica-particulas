@@ -42,3 +42,37 @@ int CarregaPontos(char *arch)
         pcPatch = liberaMatriz(pcPatch);
     pcPatch = AlocaMatriz(4, 4);
 }
+
+int GeraPontosAleatorios()
+{
+    // int random_number = rand() % 50 + 0;
+    FILE *fobj;
+    char token[40];
+    float px, py, pz;
+    int i, j, n, m;
+
+    n = 4;
+    m = 4;
+
+    if (pControle)
+        pControle = liberaMatriz(pControle);
+
+    pControle = AlocaMatriz(n, m);
+
+    for (j = 0; j < pControle->n; j++)
+    {
+        for (i = 0; i < pControle->m; i++)
+        {
+
+            pControle->ponto[j][i][0] = (px + rand() % 50 + 0 - (rand() % 50 + 0)) * local_scale;
+            pControle->ponto[j][i][1] = (py + rand() % 50 + 0 - (rand() % 50 + 0)) * local_scale;
+            pControle->ponto[j][i][2] = (pz + rand() % 50 + 0 - (rand() % 50 + 0)) * local_scale;
+            pControle->ponto[j][i][3] = 1.0f;
+        }
+    }
+
+    // espaco de matriz para um patch
+    if (pcPatch)
+        pcPatch = liberaMatriz(pcPatch);
+    pcPatch = AlocaMatriz(4, 4);
+}

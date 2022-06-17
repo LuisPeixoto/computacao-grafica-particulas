@@ -13,6 +13,10 @@ void processMenuEvents(int option) // processa eventos do menu
         CarregaPontos("points.txt");
         break;
 
+    case PontosControleAleatorio:
+        GeraPontosAleatorios();
+        break;
+
     case Pontos:
         tipoVisualisacao = GL_POINTS;
         break;
@@ -107,6 +111,7 @@ void createGLUTMenus()
 
     menu = glutCreateMenu(processMenuEvents);
     glutAddMenuEntry("Carregar pontos de controle", PontosControle);
+    glutAddMenuEntry("Gerar pontos aleatorios", PontosControleAleatorio);
     glutAddSubMenu("Superficies", SUBmenuSuperficie);
     glutAddSubMenu("Visualizacao de objeto", SUBmenuPintar);
     glutAddSubMenu("Cores", SUBmenuCores);
