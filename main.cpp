@@ -82,23 +82,6 @@ static void init(void)
     glEnable(GL_MAP2_VERTEX_3);              // habilita mapa de função de vértices
     glEnable(GL_AUTO_NORMAL);                // habilita normal automática
     glMapGrid2f(20, 0.0, 1.0, 20, 0.0, 1.0); // define grade de mapa
-
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-    ANGULO = 45;
-
-    rotX = 0;
-    rotY = 0;
-
-    obsX = 1;
-    obsY = 1;
-    obsZ = 40;
-
-    escalaX = 1;
-    escalaY = 1;
-    escalaZ = 1;
-
-    iniciaParticulas();
 }
 
 int main(int argc, char **argv)
@@ -109,20 +92,14 @@ int main(int argc, char **argv)
     glutInitWindowPosition(3, 3);
     glutCreateWindow("Sistema de Particulas");
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
+    init(); // inicializa a cena
 
     glutReshapeFunc(reshape);  // define função de redimensionamento
     glutSpecialFunc(keyboard); // define função de teclado
 
     glutDisplayFunc(display); // define função de desenho
     createGLUTMenus();        // cria menus
-
-    // glutReshapeFunc(redesenhaPrimitivas);
-    //   glutMouseFunc(mouse);
-    //  glutMotionFunc(motion);
-    glutIdleFunc(idleF); // fun?ão de animacao
-
-    init(); // inicializa a cena
-
+    glutIdleFunc(idleF);      // funcao de animacao
     glutMainLoop();
 
     return 0;

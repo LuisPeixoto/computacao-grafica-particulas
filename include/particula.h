@@ -1,16 +1,16 @@
 void conceberParticulas(int i)
 {
     // GLfloat r, alpha;   //Raio, Angulo
+    int numero_aleatorio = rand() % 121 + 0;
     GLfloat alpha, beta;
     GLfloat raio = 0.1 * randomico() + 0.06;
     alpha = 2 * M_PI * randomico();
     beta = M_PI * randomico();
 
     // Coordenadas do ponto de origem da particulas
-    Particulas[i].pos[0] = rand() % 8 - 4;
-    ;                                      // posicao em x
-    Particulas[i].pos[1] = 5.0;            // posicao em y
-    Particulas[i].pos[2] = rand() % 2 - 2; // posicao em z
+    Particulas[i].pos[0] = pontoX_particula[numero_aleatorio]; // posicao em x
+    Particulas[i].pos[1] = pontoY_particula[numero_aleatorio]; // posicao em y
+    Particulas[i].pos[2] = pontoZ_particula[numero_aleatorio]; // posicao em z
 
     Particulas[i].vel[0] = raio * cos(alpha) * sin(beta); // velocidade em x
     Particulas[i].vel[1] = raio * cos(beta);              // velocidade em y
@@ -45,7 +45,7 @@ void iniciaParticulas(void)
 
     for (i = 0; i < MAXPARTICULAS; i++)
     {
-        conceberParticulas(i);
+        // conceberParticulas(i);
     }
 }
 

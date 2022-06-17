@@ -37,7 +37,7 @@ void prod_VetMatriz(float *v, f4d **pc, f4d *vr) //  produto vetorial da matriz
 
 void ptsSuperficie(matriz *pcPatch) // calcula os pontos da superficie
 {
-    int i, j, h, n, m;
+    int i, j, h, n, m, k = 0;
     float t, s;
     float tmp[4], vsm[4], vtm[4];
     f4d va[4];
@@ -88,8 +88,14 @@ void ptsSuperficie(matriz *pcPatch) // calcula os pontos da superficie
                 ptsPatch->ponto[i][j][1] += va[h][1] * vtm[h];
                 ptsPatch->ponto[i][j][2] += va[h][2] * vtm[h];
             }
+
+            pontoX_particula[k + j] = ptsPatch->ponto[i][j][0];
+            pontoY_particula[k + j] = ptsPatch->ponto[i][j][1];
+            pontoZ_particula[k + j] = ptsPatch->ponto[i][j][2];
+
             t += VARIA;
         }
+        k += 11;
         s += VARIA;
     }
 }

@@ -20,6 +20,7 @@
 #define Translada 101
 
 #define PontosControle 19
+#define PontosControleAleatorio 190
 #define BEZIER 20
 #define BSPLINE 21
 #define CATMULLROM 22
@@ -84,6 +85,10 @@ GLfloat escalaX, escalaY, escalaZ;    // fatores de escala para trasnformacao
 
 int x_ini, y_ini, bot;
 int origemX, origemY;
+
+float pontoX_particula[121];
+float pontoY_particula[121];
+float pontoZ_particula[121];
 
 // PARTÍCULAS=======================================================================================
 typedef struct
